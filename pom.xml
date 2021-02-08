@@ -13,6 +13,10 @@
         <maven.compiler.source>11</maven.compiler.source>
         <!--The project should compile to Java 11-->
         <maven.compiler.target>11</maven.compiler.target>
+        <!--The SpigotMC version-->
+        <spigot.version>1.16.5-R0.1-SNAPSHOT</spigot.version>
+        <!--The Project Lombok version-->
+        <lombok.version>1.18.16</lombok.version>
         <!--The jupiter version of JUnit 5-->
         <junit.jupiter.version>5.7.0</junit.jupiter.version>
     </properties>
@@ -30,7 +34,14 @@
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>1.16.5-R0.1-SNAPSHOT</version>
+            <version>${spigot.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <!--Dependency for Project Lombok-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
             <scope>provided</scope>
         </dependency>
         <!--Dependencies for JUnit Testing-->
