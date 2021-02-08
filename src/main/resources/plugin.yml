@@ -1,0 +1,8 @@
+name: 'UniversalEnchants'
+prefix: 'UniversalEnchants'
+description: 'Manages a plethora of custom enchantments attached to a custom currency.'
+version: '0.1.0'
+author: 'Qhucy'
+main: 'com.qhucy.universalenchants.UniversalEnchants'
+website: 'https://github.com/Qhucy/UniversalEnchants'
+commands:
