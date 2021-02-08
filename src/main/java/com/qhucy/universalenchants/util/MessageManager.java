@@ -34,32 +34,39 @@ public final class MessageManager
     /**
      * Returns the given message with color code variables replaced by color code values.
      *
-     * @param message The message. Can't be null.
+     * @param message The message. Can be null.
      *
      * @return The given message with color code variables replaced by color code values.
      */
-    public static String colorize(@NonNull final String message)
+    public static String colorize(final String message)
     {
-        final StringBuilder stringBuilder = new StringBuilder();
-        final char[] chars = message.toCharArray();
-
-        for (int i = 0; i < chars.length; i++)
+        if (message == null)
         {
-            char part = chars[i];
-
-            if (part == '&' && (i + 1) < chars.length && COLOR_CODES.contains(chars[i + 1]))
-            {
-                stringBuilder.append(ChatColor.COLOR_CHAR).append(chars[i + 1]);
-
-                i++;
-            }
-            else
-            {
-                stringBuilder.append(part);
-            }
+            return null;
         }
+        else
+        {
+            final StringBuilder stringBuilder = new StringBuilder();
+            final char[] chars = message.toCharArray();
 
-        return stringBuilder.toString();
+            for (int i = 0; i < chars.length; i++)
+            {
+                char part = chars[i];
+
+                if (part == '&' && (i + 1) < chars.length && COLOR_CODES.contains(chars[i + 1]))
+                {
+                    stringBuilder.append(ChatColor.COLOR_CHAR).append(chars[i + 1]);
+
+                    i++;
+                }
+                else
+                {
+                    stringBuilder.append(part);
+                }
+            }
+
+            return stringBuilder.toString();
+        }
     }
 
     /**
@@ -71,20 +78,27 @@ public final class MessageManager
      *
      * @return The stringValue with its variables being replaced with its values.
      */
-    public static String replaceVariables(@NonNull String message, final String[] replacementVariables)
+    public static String replaceVariables(String message, final String[] replacementVariables)
     {
-        if (replacementVariables != null && replacementVariables.length > 1 && replacementVariables.length % 2 == 0)
+        if (message == null)
         {
-            for (int i = 0; i < replacementVariables.length; i += 2)
-            {
-                final String variable = replacementVariables[i];
-                final String value = replacementVariables[i + 1];
-
-                message = message.replace(variable, value);
-            }
+            return null;
         }
+        else
+        {
+            if (replacementVariables != null && replacementVariables.length > 1 && replacementVariables.length % 2 == 0)
+            {
+                for (int i = 0; i < replacementVariables.length; i += 2)
+                {
+                    final String variable = replacementVariables[i];
+                    final String value = replacementVariables[i + 1];
 
-        return message;
+                    message = message.replace(variable, value);
+                }
+            }
+
+            return message;
+        }
     }
 
 }
