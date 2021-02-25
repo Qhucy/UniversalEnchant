@@ -15,12 +15,11 @@ import java.nio.file.StandardCopyOption;
  * Class that manages configuration (config) variables (vars) from config files.
  *
  * @author Qhucy
- * @since 08 Feb, 2021
  */
 public final class Config
 {
 
-    @Getter(AccessLevel.PRIVATE)
+    @Getter( AccessLevel.PRIVATE )
     private final UniversalEnchant plugin;
 
     /**
@@ -31,7 +30,7 @@ public final class Config
      * @throws ConfigLoadException If unable to generate the plugin data folder or load fields from config files.
      * @throws IOException         If unable to modify or load config files.
      */
-    public Config(@NonNull final UniversalEnchant plugin)
+    public Config( @NonNull final UniversalEnchant plugin )
             throws ConfigLoadException, IOException
     {
         this.plugin = plugin;
@@ -62,9 +61,9 @@ public final class Config
     {
         final File pluginFolder = getPluginFolder();
 
-        if (!pluginFolder.exists() && !pluginFolder.mkdirs())
+        if ( !pluginFolder.exists() && !pluginFolder.mkdirs() )
         {
-            throw new ConfigLoadException("Unable to create plugin data folder.");
+            throw new ConfigLoadException( "Unable to create plugin data folder." );
         }
     }
 
@@ -88,23 +87,24 @@ public final class Config
      * @throws IOException         If unable to copy the default config.
      * @throws ConfigLoadException If unable to retrieve the default config.
      */
-    private void createConfigFile(@NonNull final String configName)
+    private void createConfigFile( @NonNull final String configName )
             throws IOException, ConfigLoadException
     {
-        final File configFile = new File(getPluginFolder(), configName);
+        final File configFile = new File( getPluginFolder(), configName );
 
-        if (!configFile.exists())
+        if ( !configFile.exists() )
         {
-            try (final InputStream configResource = getPlugin().getResource(configName))
+            try ( final InputStream configResource = getPlugin().getResource( configName ) )
             {
-                if (configResource == null)
+                if ( configResource == null )
                 {
-                    throw new ConfigLoadException("Unable to load '" + configName + "' " + "as a resource for the " + "default config.");
+                    throw new ConfigLoadException(
+                            "Unable to load '" + configName + "' " + "as a resource for the " + "default config." );
                 }
                 else
                 {
                     // Copies the default config.
-                    Files.copy(configResource, configFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                    Files.copy( configResource, configFile.toPath(), StandardCopyOption.REPLACE_EXISTING );
                 }
             }
         }
@@ -131,8 +131,8 @@ public final class Config
     private void loadMainConfig()
             throws IOException, ConfigLoadException
     {
-        final File configFile = new File(getPluginFolder(), "config.yml");
-        final ConfigManager configManager = new ConfigManager(configFile);
+        final File          configFile    = new File( getPluginFolder(), "config.yml" );
+        final ConfigManager configManager = new ConfigManager( configFile );
 
         // load values here.
     }

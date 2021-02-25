@@ -31,7 +31,7 @@ public final class UniversalEnchant
     {
         loadConfig();
 
-        pluginInfo = new PluginInfo(getDescription());
+        pluginInfo = new PluginInfo( getDescription() );
 
         // utility classes
 
@@ -46,20 +46,20 @@ public final class UniversalEnchant
     }
 
     /**
-     * Loads all configuration files and their values.
-     * Disables the plugin if unable to load or create a configuration file.
+     * Loads all configuration files and their values. Disables the plugin if unable to load or create a configuration
+     * file.
      */
     private void loadConfig()
     {
         try
         {
-            config = new Config(this);
+            config = new Config( this );
 
-            getLogger().info("Loaded existing values from configuration files.");
+            getLogger().info( "Loaded existing values from configuration files." );
         }
-        catch (final ConfigLoadException | IOException exception)
+        catch ( final ConfigLoadException | IOException exception )
         {
-            getLogger().severe("Unable to load or create configuration files.");
+            getLogger().severe( "Unable to load or create configuration files." );
             // Disable the plugin to notify a server administrator of a severe error.
             setPluginFailure();
 
@@ -81,10 +81,10 @@ public final class UniversalEnchant
      * @param logLevel The level severity of the log.
      * @param messages The array of log messages that gets joined by a newline character.
      */
-    private void formattedLogMessage(@NonNull final Level logLevel, @NonNull final String... messages)
+    private void formattedLogMessage( @NonNull final Level logLevel, @NonNull final String... messages )
     {
-        getLogger().log(logLevel, "+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n\n" + String.join("\n", messages) + "\n\n" +
-                "+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+");
+        getLogger().log( logLevel, "+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n\n" + String
+                .join( "\n", messages ) + "\n\n" + "+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+" );
     }
 
     /**
@@ -92,11 +92,11 @@ public final class UniversalEnchant
      */
     private void setPluginFailure()
     {
-        formattedLogMessage(Level.SEVERE, "A SEVERE PLUGIN ERROR HAS OCCURRED!\n",
-                "Read the above log messages in " + "order to understand and solve the problem.", "Then, restart the "
-                        + "server in order to see if the issue has been resolved.");
+        formattedLogMessage( Level.SEVERE, "A SEVERE PLUGIN ERROR HAS OCCURRED!\n",
+                             "Read the above log messages in " + "order to understand and solve the problem.",
+                             "Then, restart the " + "server in order to see if the issue has been resolved." );
 
-        getServer().getPluginManager().disablePlugin(this);
+        getServer().getPluginManager().disablePlugin( this );
     }
 
 }
