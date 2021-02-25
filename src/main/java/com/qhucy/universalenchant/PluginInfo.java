@@ -1,4 +1,4 @@
-package com.qhucy.universalenchants;
+package com.qhucy.universalenchant;
 
 import lombok.Getter;
 import lombok.NonNull;

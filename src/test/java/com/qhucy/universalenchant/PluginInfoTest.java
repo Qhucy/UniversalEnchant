@@ -1,4 +1,4 @@
-package com.qhucy.universalenchants;
+package com.qhucy.universalenchant;
 
 import org.bukkit.plugin.InvalidDescriptionException;
 import org.bukkit.plugin.PluginDescriptionFile;
@@ -22,7 +22,7 @@ final class PluginInfoTest
         try
         {
             dummyPluginDescriptionFile = new PluginDescriptionFile(new FileInputStream("src/test/java/com/qhucy" +
-                    "/universalenchants/dummy_plugin.yml"));
+                    "/universalenchant/dummy_plugin.yml"));
         }
         catch (InvalidDescriptionException | FileNotFoundException e)
         {

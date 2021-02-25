@@ -1,7 +1,7 @@
-package com.qhucy.universalenchants;
+package com.qhucy.universalenchant;
 
-import com.qhucy.universalenchants.config.Config;
-import com.qhucy.universalenchants.config.ConfigLoadException;
+import com.qhucy.universalenchant.config.Config;
+import com.qhucy.universalenchant.config.ConfigLoadException;
 import lombok.NonNull;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -9,11 +9,11 @@ import java.io.IOException;
 import java.util.logging.Level;
 
 /**
- * Main class for UniversalEnchants (UE) that handles initialization and shutdown.
+ * Main class for UniversalEnchant (UE) that handles initialization and shutdown.
  *
  * @author Qhucy
  */
-public final class UniversalEnchants
+public final class UniversalEnchant
         extends JavaPlugin
 {
 

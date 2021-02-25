@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.qhucy</groupId>
-    <artifactId>UniversalEnchants</artifactId>
+    <artifactId>UniversalEnchant</artifactId>
     <version>0.1.0</version>
 
     <properties>

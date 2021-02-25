@@ -1,4 +1,4 @@
-package com.qhucy.universalenchants.util;
+package com.qhucy.universalenchant.util;
 
 import lombok.NonNull;
 import org.bukkit.ChatColor;

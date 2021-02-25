@@ -1,11 +1,11 @@
-package com.qhucy.universalenchants.util;
+package com.qhucy.universalenchant.util;
 
 import org.bukkit.ChatColor;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static com.qhucy.universalenchants.util.MessageManager.*;
+import static com.qhucy.universalenchant.util.MessageManager.*;
 
 @DisplayName("MessageManager Testing")
 class MessageManagerTest

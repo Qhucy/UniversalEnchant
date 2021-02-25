@@ -1,6 +1,6 @@
-package com.qhucy.universalenchants.config;
+package com.qhucy.universalenchant.config;
 
-import com.qhucy.universalenchants.UniversalEnchants;
+import com.qhucy.universalenchant.UniversalEnchant;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NonNull;
@@ -21,7 +21,7 @@ public final class Config
 {
 
     @Getter(AccessLevel.PRIVATE)
-    private final UniversalEnchants plugin;
+    private final UniversalEnchant plugin;
 
     /**
      * Loads in all config variables from the config files.
@@ -31,7 +31,8 @@ public final class Config
      * @throws ConfigLoadException If unable to generate the plugin data folder or load fields from config files.
      * @throws IOException         If unable to modify or load config files.
      */
-    public Config(@NonNull final UniversalEnchants plugin) throws ConfigLoadException, IOException
+    public Config(@NonNull final UniversalEnchant plugin)
+            throws ConfigLoadException, IOException
     {
         this.plugin = plugin;
 
@@ -56,7 +57,8 @@ public final class Config
      *
      * @throws ConfigLoadException If there is an error creating the plugin data folder.
      */
-    private void createPluginFolder() throws ConfigLoadException
+    private void createPluginFolder()
+            throws ConfigLoadException
     {
         final File pluginFolder = getPluginFolder();
 
@@ -72,7 +74,8 @@ public final class Config
      * @throws IOException         If unable to copy the default config.
      * @throws ConfigLoadException If unable to retrieve the default config.
      */
-    private void createConfigFiles() throws IOException, ConfigLoadException
+    private void createConfigFiles()
+            throws IOException, ConfigLoadException
     {
         // None yet!
     }
@@ -85,7 +88,8 @@ public final class Config
      * @throws IOException         If unable to copy the default config.
      * @throws ConfigLoadException If unable to retrieve the default config.
      */
-    private void createConfigFile(@NonNull final String configName) throws IOException, ConfigLoadException
+    private void createConfigFile(@NonNull final String configName)
+            throws IOException, ConfigLoadException
     {
         final File configFile = new File(getPluginFolder(), configName);
 
@@ -112,7 +116,8 @@ public final class Config
      * @throws IOException         If unable to load a config file.
      * @throws ConfigLoadException If unable to load a field from one of the configs.
      */
-    public final void loadConfigFiles() throws IOException, ConfigLoadException
+    public final void loadConfigFiles()
+            throws IOException, ConfigLoadException
     {
         loadMainConfig();
     }
@@ -123,7 +128,8 @@ public final class Config
      * @throws IOException         If unable to load the main config file.
      * @throws ConfigLoadException If unable to load a field from the main config.
      */
-    private void loadMainConfig() throws IOException, ConfigLoadException
+    private void loadMainConfig()
+            throws IOException, ConfigLoadException
     {
         final File configFile = new File(getPluginFolder(), "config.yml");
         final ConfigManager configManager = new ConfigManager(configFile);

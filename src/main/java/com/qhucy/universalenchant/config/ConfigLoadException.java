@@ -1,4 +1,4 @@
-package com.qhucy.universalenchants.config;
+package com.qhucy.universalenchant.config;
 
 import lombok.NonNull;
 
